@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* font:oblique */
+@theme{
+    --color-darkpurple: #2E0040;
+  --color-royalblue: #5225DF;
+  --color-lavendergray: #B5BED7;
+  --color-tigerorange: #E38A29;
+   --color-electricindigo: #1915D6;
+  --color-midnightpurple: #340252;
+  --color-periwinkle: #7276DC;
+}
