@@ -30,9 +30,8 @@ const handleSubmit = async(e) =>{
         toast.success("Login successfully");
         navigate("/get");
     } catch (error) {
-     toast.error("Please Register  first.");
-        console.log(error)
-    }
+        console.error("Login Error:", error);
+     toast.error(error.response?.data?.message || "Login failed");}
 };
 return(
     <>

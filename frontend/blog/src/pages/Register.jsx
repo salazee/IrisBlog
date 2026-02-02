@@ -9,7 +9,8 @@ export default function Register() {
     name: "",
     email: "",
     password: "",
-    contact: "",
+    confirmPassword: "",
+    role:"reader",
   });
 
   const handleChange = (e) => {
@@ -27,9 +28,10 @@ export default function Register() {
           formData
         );
         toast.success("register successfully")
-      navigate("/login")
+      navigate("/auth/verifyemail");
     } catch (error) {
-        toast.error("sorry",error)
+      console.error("Registration Error:", error);
+        toast.error("Registration failed: " + error.message)
     }
     console.log("Form submitted successfully");
     // TODO: Send formData to your backend API
@@ -81,20 +83,32 @@ export default function Register() {
       </div>
 <div className="flex flex-col ">
   
-        <label htmlFor="contact">Phone no:</label>
+        <label htmlFor="password">Confirm Password:</label>
         <input
-          type="tel" // ✅ correct type for phone
-          id="contact"
-          name="contact"
-          value={formData.contact}
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          value={formData.confirmPassword}
           onChange={handleChange}
           required
           className="w-[30vw] p-2 border-2 mb-3"
         />
 </div>
+<div className="flex flex-col">
+  <label htmlFor="role">Role:</label>
+  <select name="role"
+  id="role"
+  value={formData.role}
+  onChange={handleChange}
+   className="w-full p-2 mb-3 border-4">
+    <option value="reader">Reader</option>
+    <option value='editor'> Editor</option>  </select>
+</div>
       </div>
   <div className="text-center ">
-      <button type="submit" className="bg-midnightpurple text-white p-3 rounded-md w-52 "> Register</button>
+      <button type="submit"
+      navigate="/login"
+      disabled={false} className="bg-midnightpurple text-white p-3 rounded-md w-52 "> Register</button>
   </div>
     </form>
   );

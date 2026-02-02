@@ -92,7 +92,7 @@ export default function HomePage() {
           posts.map((post) => (
             <div
               key={post._id}
-              className="p-4 rounded-2xl mb-5 bg-gray-100 mx-auto"
+              className="p-4 rounded-2xl mb-5 bg-purple-100 mx-auto"
             >
               <h2 className="text-xl font-bold">{post.title}</h2>
               <p className="mt-2 text-gray-700">{post.content}</p>

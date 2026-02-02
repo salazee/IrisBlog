@@ -14,7 +14,8 @@ const userSchema = new mongoose.Schema({
         },
         password:{
             type:String,
-            require:true
+            require:true, 
+            minlength:6
         },
         contact:{
             type:Number,
@@ -22,8 +23,8 @@ const userSchema = new mongoose.Schema({
         },
         role:{
             type:String,
-            enum:["user","admin"],
-            default:"user",
+            enum:["reader","admin","editor"],
+            default:"reader",
             require:true
         },
         bio:{
@@ -33,8 +34,23 @@ const userSchema = new mongoose.Schema({
         },
         otp:{
             type:String,
-            require:false,
+            
+        },
+        isVerified:{
+            type:Boolean,
+            default:false   
+        },
+        otpExpires:{
+            type:Date,
+        },
+        resetPasswordToken:{
+            type:String,
+        },
+        resetPasswordExpires:{
+            type:Date,      
         }
-    
-})
+
+
+},
+{timestamps:true});
 module.exports=mongoose.model( "User", userSchema);

@@ -55,7 +55,7 @@ export default function Profile() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Profile Header Card */}
-      <div className="bg-linear-to-r from-purple-600 to-indigo-600 rounded-lg shadow-lg p-8 mb-8 text-white  ">
+      <div className="bg-linear-to-r from-purple-600 to-midnightpurple rounded-lg shadow-lg p-8 mb-8 text-white  ">
         <div className="flex items-start justify-between">
           <div>
             <div className="flex items-center gap-3 mb-4">

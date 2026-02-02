@@ -7,6 +7,10 @@ import Homepage from "./pages/HomePage"
 import { ToastContainer } from 'react-toastify';
 import Login from './pages/login'; 
 import Register from './pages/register';
+import VerifyEmail from './pages/VerifyEmail';
+// import ResendOtp from './pages/ResendOtp';
+import ForgetPassword from './pages/ForgetPassword';
+import ResetPassword from './pages/ResetPassword';  
 import Navbar from './pages/Nav';
 import Profile from './pages/Profile';
 
@@ -26,6 +30,10 @@ function App() {
        
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login />} />
+        <Route path='/auth/verifyemail' element={<VerifyEmail />} />
+        {/* <Route path='/auth/resendotp' element={<ResendOtp />} /> */}
+        <Route path='/auth/forgetpassword' element={<ForgetPassword />} />
+        <Route path='/auth/resetpassword/:token' element={<ResetPassword />} />
         <Route path='/' element = {<Homepage/>} />
         <Route path="/create" element={<CreatePost />} />
         {/* <Route path="/getById/:id" element={<SinglePost />} /> */}
