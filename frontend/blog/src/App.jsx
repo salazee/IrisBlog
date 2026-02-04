@@ -8,7 +8,6 @@ import { ToastContainer } from 'react-toastify';
 import Login from './pages/login'; 
 import Register from './pages/register';
 import VerifyEmail from './pages/VerifyEmail';
-// import ResendOtp from './pages/ResendOtp';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';  
 import Navbar from './pages/Nav';

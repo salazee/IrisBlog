@@ -81,7 +81,9 @@ if (!email || !password) {
     }
 
     if (!user.isVerified) {
-        return res.status(401).json({ message: "Please verify your email first" });
+        return res.status(401).json({ message: "Please verify your email first" ,
+            email: user.email
+        });
       }
 
       //comparing password
@@ -97,7 +99,14 @@ if (!email || !password) {
         JWT_SECRET,
        {expiresIn:"1h"}
     );
-    res.status(200).json({message:"Login Successfully", token}) ;
+    res.status(200).json({message:"Login Successfully", token,
+        user: {
+            id: user._id,
+            name: user.name,
+            email: user.email,
+            role: user.role
+        }
+    }) ;
     // try {
     //     sendEmail.sendMail(
     //     `${user.email}`,

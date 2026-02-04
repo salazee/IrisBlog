@@ -8,19 +8,31 @@ import { toast } from 'react-toastify';
 
 export default function Profile() {
   const [userPosts, setUserPosts] = useState([]);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   // Get user from localStorage
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
+   user = JSON.parse(localStorage.getItem('user') || '{}');
 
   // If no user, redirect to login
   useEffect(() => {
-    if (!user.name) {
+    const token = localStorage.getItem('token');
+    const userData = localStorage.getItem('user');
+    if (!userData || !token) {
       toast.error('Please login to view profile');
       navigate('/login');
       return;
     }
+    try {
+      const parsedUser = JSON.parse(userData);
+      setUser(parsedUser);
+  } catch (error) {
+      toast.error('Invalid session. Please login again.', {error});
+      localStorage.clear();
+      navigate('/login');
+  }
+
     fetchUserPosts();
   }, []);
 

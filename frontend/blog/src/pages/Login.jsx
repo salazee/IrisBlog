@@ -25,7 +25,8 @@ const handleSubmit = async(e) =>{
     try {
         const res = await API.post(`/auth/login`, formData);
 
-          localStorage.setItem("token", res.data.token)
+          localStorage.setItem("token", res.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data.user));//this saves the user data
        
         toast.success("Login successfully");
         navigate("/get");
