@@ -2,7 +2,7 @@ const Post = require("../model/blog.js");
 const Like = require("../model/likes.js");
 
 const create = async (req, res) => {
-  const { title, content, author } = req.body;
+  const { title, content, author } = req.user;
   try {
     if (!title || !content || !author) {
       // ✅ Fixed: Added return to prevent execution after response
@@ -11,7 +11,7 @@ const create = async (req, res) => {
     const newPost = new Post({
       title: title,
       content: content,
-      author: author
+      author: req.user.name
     });
     await newPost.save();
     res.status(200).send({ message: "Blog posted successfully", create: newPost });

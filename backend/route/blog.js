@@ -1,5 +1,5 @@
 const express = require("express");
-const{create, get,getById, getByAuthor,updatePost
+const{create, get, getById, getByAuthor,updatePost
 , deletePost,
 toggleLike} = require("../controller/blogController");
 const verify = require("../middleware/authMiddleware");
