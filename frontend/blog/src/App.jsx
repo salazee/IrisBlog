@@ -12,8 +12,8 @@ import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';  
 import Navbar from './pages/Nav';
 import Profile from './pages/Profile';
-
-// import SinglePost from './pages/PostDetails';
+import SinglePost from './pages/PostDetails';
+import GetAllPosts from './pages/Getpost';
 // import toggleLike from "./pages/Likes";
 
 
@@ -26,20 +26,22 @@ function App() {
     
     
       <Routes>
-       
+      <Route path='/' element = {<Homepage/>} />
         <Route path='/register' element={<Register/>} />
-        <Route path='/login' element={<Login />} />
+        
+
         <Route path='/auth/verifyemail' element={<VerifyEmail />} />
-        {/* <Route path='/auth/resendotp' element={<ResendOtp />} /> */}
+        <Route path='/login' element={<Login />} />
         <Route path='/auth/forgetpassword' element={<ForgetPassword />} />
         <Route path='/auth/resetpassword/:token' element={<ResetPassword />} />
-        <Route path='/' element = {<Homepage/>} />
+       
         <Route path="/create" element={<CreatePost />} />
+        <Route path="/get" element={<GetAllPosts />} />
         {/* <Route path="/getById/:id" element={<SinglePost />} /> */}
         <Route path="/updatePost/:id" element={<EditPost />} />
         <Route path="/getByAuthor/:author" element={<AuthorPosts/>}/> 
         <Route path='/profile' element={<Profile/>} />
-    
+    <Route path="/post/:id" element={<SinglePost />} />
    
       </Routes>
   <ToastContainer position='top-right'/>

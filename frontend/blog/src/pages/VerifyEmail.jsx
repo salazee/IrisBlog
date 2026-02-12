@@ -58,9 +58,9 @@ export default function VerifyEmail() {
     try {
       await API.post(`/auth/resendotp`, { email });
       toast.success('New OTP sent to your email!');
-    } catch (err) {
-      console.error('Resend error:', err);
-      toast.error(err.response?.data?.message || 'Failed to resend OTP');
+    } catch (error) {
+      console.error('Resend error:', error);
+      toast.error(error.response?.data?.message || 'Failed to resend OTP');
     }
   };
 

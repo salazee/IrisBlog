@@ -12,6 +12,14 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // const token = localStorage.getItem('token');
+    // const storedUser = localStorage.getItem('user');
+
+    // if (!token || !storedUser) {
+    //   toast.info("Please login to view Profile");
+    //   navigate('/login');
+    //   return;
+    // }
     fetchPosts();
   }, []);
 
