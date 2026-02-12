@@ -1,12 +1,12 @@
 // src/App.jsx
 import { Routes, Route } from 'react-router-dom';
 import AuthorPosts from './pages/getbyauthor';
-import CreatePost from './pages/create';
+import CreatePost from './pages/Create';
 import EditPost from './pages/EditPost';
 import Homepage from "./pages/HomePage"
 import { ToastContainer } from 'react-toastify';
-import Login from './pages/login'; 
-import Register from './pages/register';
+import Login from './pages/Login'; 
+import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';  
