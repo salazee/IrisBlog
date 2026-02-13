@@ -16,7 +16,7 @@ const PORT =process.env.PORT;
 const app= express();
 app.use(express.json());
 
-app.use(cors(['https://irisblogfrontend.onrender.com','http://localhost:5173'],{
+app.use(cors([process.env.frontendurl,'http://localhost:5173'],{
      origin: "https://irisblogfrontend.onrender.com",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -41,12 +41,7 @@ app.get('/', (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
-// Add this AFTER your API routes, BEFORE error handlers
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/blog/dist')));
-  
-  
-}
+
 connectDB();
 
 app.listen(PORT, () => {
