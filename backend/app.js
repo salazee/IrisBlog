@@ -17,7 +17,7 @@ const app= express();
 app.use(express.json());
 
 app.use(cors({
-     origin: process.env.FRONTEND_URL||'https://irisblogbackend.onrender.com',
+     origin: process.env.VITE_API_URL||'https://irisblogbackend.onrender.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
