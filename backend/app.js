@@ -16,10 +16,11 @@ const PORT =process.env.PORT;
 const app= express();
 app.use(express.json());
 
-app.use(cors({
-     origin: process.env.VITE_API_URL||'https://irisblogbackend.onrender.com',
+app.use(cors(['https://irisblogfrontend.onrender.com','http://localhost:5173'],{
+     origin: "https://irisblogfrontend.onrender.com",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials:true
 }));
 
 app.use(helmet());
